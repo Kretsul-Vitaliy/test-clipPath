@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+            }
+
+            :root {
+                --orange: linear-gradient(180deg, #ff8000 0%, #994d00 100%);
+                --text-color: #1b1b1b;
+            }
+
+            html {
+                font-size: calc(18px + 0.3vmax);
+                font-family: Arial, Helvetica, sans-serif;
+                font-variation-settings: "wght" 300;
+            }
+
+            body {
+                background: var(--orange);
+                color: var(--text-color);
+            }
+
+            section {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+                gap: 1rem;
+                padding: 2rem;
+            }
+            @media (max-width: 600px) {
+                section {
+                    grid-template-columns: repeat(
+                        auto-fill,
+                        minmax(12rem, 1fr)
+                    ); /* Ще менше значення для вузьких екранів */
+                }
+            }
+            figure {
+                background-color: var(--post-color);
+                padding: 2rem;
+                border-radius: 1rem;
+                max-width: 100%; /* Важливо для адаптації до ширини */
+                margin: 0 auto; /* Вирівнювання по центру */
+            }
+
+            figcaption {
+                font-size: 1.25rem;
+                margin: 2rem 0 0;
+                padding: 1rem 0 0;
+                text-wrap: balance;
+                border-top: 2px solid var(--background-color);
+            }
+
+            svg.clippy {
+                position: absolute;
+                top: -999px;
+                left: -999px;
+                width: 0;
+                height: 0;
+            }
+
+            .subtract {
+                clip-path: url(#clip-subtract-1);
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                background-image: linear-gradient(45deg, #f0a0a0, #ffd700);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                aspect-ratio: 380 / 181;
+                padding: 0;
+                display: flex;
+                align-items: end;
+                padding-top: 8%;
+            }
+            .rectangle {
+                clip-path: url(#clip-rectangle-1);
+                width: 100%;
+                height: 75%;
+                background: rgba(255, 0, 0, 0.5);
+                border-radius: 20px;
+                padding: 20px;
+                display: flex;
+                align-items: end;
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="clippy">
+            <clipPath
+                id="clip-subtract-1"
+                clipPathUnits="objectBoundingBox"
+                transform="scale(0.0030581039755351682, 0.0055248618784530384)">
+                <path
+                    d="M0 20C0 8.9543 8.9543 0 20 0H70.2759C80.6169 0 89 8.38308 89 18.7241V22.4414C89 33.4871 97.9543 42.4414 109 42.4414H307C318.046 42.4414 327 51.3957 327 62.4414V161C327 172.046 318.046 181 307 181H20C8.9543 181 0 172.046 0 161V20Z"
+                    fill="#F0A0A0" />
+            </clipPath>
+            <clipPath
+                id="clip-rectangle-1"
+                clipPathUnits="objectBoundingBox"
+                transform="scale(0.0030581039755351682, 0.008403361344537815)">
+                <path
+                    d="M0 20C0 8.9543 8.95431 0 20 0H307C318.046 0 327 8.95431 327 20V99C327 110.046 318.046 119 307 119H20C8.9543 119 0 110.046 0 99V20Z"
+                    fill="#D9D9D9" />
+            </clipPath>
+        </svg>
+        <section>
+            <h1>TEST clip-path</h1>
+            <figure class="subtract">
+                <figcaption class="rectangle">
+                    Modern Dating: Navigating
+                </figcaption>
+            </figure>
+        </section>
+    </body>
+</html>
